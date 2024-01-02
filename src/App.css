@@ -36,3 +36,86 @@
     transform: rotate(360deg);
   }
 }
+
+
+
+/* PICKED UP FROM OLD PROJECT visualizataions.scss: */
+
+.scatter-plot svg {
+  .axis text {
+    font: 10pt sans-serif;
+  }
+  .axis .label {
+    font-size: 16pt;
+  }
+
+  .axis path, .axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+  }
+}
+
+#filters{font-family:Arial,sans-serif;margin-bottom:20px;}
+#filters a {
+  color:#000;
+  font-size:12px;
+  padding:5px;
+  background:#e2e2e2;
+  cursor:pointer;
+  margin-right:3px;
+
+}
+#filters a.SAS{background:#895881;color:#fff;}
+#filters a.ECS{background:#ED7C31;color:#fff;}
+#filters a.MEA{background:#82A5C0;color:#fff;}
+#filters a.SSF{background:#6E9E75;color:#fff;}
+#filters a.LCN{background:#00BBD6;color:#fff;}
+#filters a.EAS{background:#e25f82;color:#fff;}
+#filters a.NAC{background:#be1932;color:#fff;}
+#vis{min-height:550px;}
+#blurb{height:60px;border-top:1px solid #e2e2e2;padding-top:20px;}
+
+path {
+  /* stroke-width: 1; */
+  stroke-width: 2;
+  /* fill: none; */
+}
+
+path.arc {
+  stroke-width: 1;
+}
+
+/* .multi-line-chart { */
+
+  path.line {
+    stroke-width: 2;
+    fill: none;
+  }
+
+  path.transitional {
+    transition: stroke 0.3s ease-out;
+  }
+
+  path.highlight, path#highlighted {
+    stroke:#eeee00;
+    stroke-width:5;
+  }
+
+  path.current, path.clicked {
+    stroke:#00eeee;
+    stroke-width: 10;
+  }
+/* } */
+
+.SAS.highlight{stroke:#895881;}
+.ECS.highlight{stroke:#ED7C31;}
+.MEA.highlight{stroke:#82A5C0;}
+.SSF.highlight{stroke:#6E9E75;}
+.LCN.highlight{stroke:#00BBD6;}
+.EAS.highlight{stroke:#e25f82;}
+.NAC.highlight{stroke:#be1932;}
+.highlight{stroke-width:1px;}
+.axis{stroke-width:0.8;stroke:#000;}
+.xTicks,.yTicks{stroke-width:0.6;stroke:#000;}
+
