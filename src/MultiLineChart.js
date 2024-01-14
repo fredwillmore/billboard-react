@@ -4,7 +4,7 @@ import { axisBottom, axisRight } from 'd3-axis';
 import * as d3 from 'd3';
 
 import Axis from './d3/Axis.jsx'
-import ReactTransitionGroup from 'react-addons-transition-group'
+import TransitionGroup from 'react-transition-group'
 import jsonData from './data/chart_tracks_color/1977.json';
 
 function MultiLineChart(props) {
@@ -200,7 +200,7 @@ function MultiLineChart(props) {
           >
             {/* { console.log(thing) } */}
             <svg width={innerWidth} height={innerHeight}>
-              <ReactTransitionGroup component="g" className="view">
+              {/* <TransitionGroup component="g" className="view"> */}
                 {
                   data.map((track) => {
                     return track.trajectories.map((trajectory, i) => {
@@ -230,7 +230,7 @@ function MultiLineChart(props) {
                   d = { highlightedTrajectory }
                   fill = { "none" }
                 />
-              </ReactTransitionGroup>
+              {/* </TransitionGroup> */}
             </svg>
           </g>
             <Axis
