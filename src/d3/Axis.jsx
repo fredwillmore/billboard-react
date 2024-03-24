@@ -97,7 +97,7 @@ function Axis(props) {
     return isX() ? `translate(0, ${props.height})` : ''
   }
 
-  console.log("hello from axis")
+  // console.log("hello from axis")
   return (
     <g
       ref = {axisRef}

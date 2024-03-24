@@ -5,11 +5,10 @@ import * as d3 from 'd3';
 
 import Axis from './d3/Axis.jsx'
 import TransitionGroup from 'react-transition-group'
-import jsonData from './data/chart_tracks_color/1977.json';
 
 function MultiLineChart(props) {
 
-  const [data, setData] = useState(jsonData)
+  const [data, setData] = useState(props.jsonData)
   const [headerText, setHeaderText] = useState(props.headerText)
   const [subHeaderText, setSubHeaderText] = useState(props.subHeaderText)
   const [innerWidth, setInnerWidth] = useState(props.width - props.margin.left - props.margin.right)
@@ -39,11 +38,28 @@ function MultiLineChart(props) {
     [0, innerHeight]
   )
 
+  // const [yScale, setYScale] = useState(
+  //   () => d3.scaleLinear().domain(
+  //     [yMin, yMax]
+  //   ).range(
+  //     [0, innerHeight]
+  //   )
+  // )
+  console.log('yMax', props.yMax)
+  console.log('yMax', yMax)
+
   useEffect(() => {
+    // TODO: why doesn't this one work inside the function
+    setData(props.jsonData);
+    // TODO: why do I need this function anyway
+    setXMin(props.xMin);
+    setXMax(props.xMax);
+    setYMin(props.yMin);
+    setYMax(props.yMax);
+    setHeaderText(props.headerText);
     return () => {
-      console.log('MultiLineChart is mounted here')
     };
-  }, []); // The empty dependency array means this effect will only run once, similar to componentDidMount
+  }, [props])
 
   const xZoom = function(){
     const zoomFactor = .1
@@ -198,7 +214,6 @@ function MultiLineChart(props) {
             width = {innerWidth}
             height = {innerHeight}
           >
-            {/* { console.log(thing) } */}
             <svg width={innerWidth} height={innerHeight}>
               {/* <TransitionGroup component="g" className="view"> */}
                 {
@@ -218,7 +233,7 @@ function MultiLineChart(props) {
                           onMouseOut = {handleMouseOut}
                           onClick = {handleClick}
                           stroke = { '#' + track.color}
-                          stroke-linejoin = {'round'}
+                          strokeLinejoin = {'round'}
                           className = { currentItemID == track.id ? 'current' : ''}
                         />
                       )
