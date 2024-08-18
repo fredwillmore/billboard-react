@@ -27,10 +27,10 @@ function BillboardMultiLineChart() {
   const [jsonData, setJsonData] = useState([])
 
   useEffect(() => {
-    return () => {
+    // return () => {
       console.log('it is mounted here')
       actuallyChangeYear(year)
-    };
+    // };
   }, []); // The empty dependency array means this effect will only run once, similar to componentDidMount
 
   const chartLengthOptions = function() {

@@ -6,6 +6,8 @@ import * as d3 from 'd3';
 import Axis from './d3/Axis.jsx'
 import TransitionGroup from 'react-transition-group'
 
+// import Tooltip from './Tooltip';
+
 function MultiLineChart(props) {
 
   const [data, setData] = useState(props.jsonData)
@@ -45,8 +47,8 @@ function MultiLineChart(props) {
   //     [0, innerHeight]
   //   )
   // )
-  console.log('yMax', props.yMax)
-  console.log('yMax', yMax)
+  // console.log('yMax', props.yMax)
+  // console.log('yMax', yMax)
 
   useEffect(() => {
     // TODO: why doesn't this one work inside the function
@@ -163,6 +165,9 @@ function MultiLineChart(props) {
 
   const handleMouseOver = function(d)
   {
+    let xPosition = d.clientX
+    let yPosition = d.clientY
+
     setHighlightedItemTrack(d.target.dataset.trackName)
     setHighlightedItemArtist(d.target.dataset.artistName)
     setHighlightedItemPeak(d.target.dataset.trackPeakPosition)
@@ -273,6 +278,18 @@ function MultiLineChart(props) {
             />
         </svg>
       </div>
+      {/* <Tooltip
+        // TODO: why is this the only place props work like this
+        props = {{
+          showTooltip: true,
+          text: "thing"
+        }}
+      >
+        <p>Track Name: {highlightedItemTrack}</p>
+        <p>Artist: {highlightedItemArtist}</p>
+        <p>Peak Position: {highlightedItemPeak}</p>
+        <p>More Info:</p>
+      </Tooltip> */}
     </div>
   );
 }
