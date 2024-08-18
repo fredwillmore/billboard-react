@@ -24,4 +24,4 @@ ENV PORT=3003
 EXPOSE 3003
 
 # Command to run your application
-CMD ["serve", "-s", "build"]
+# CMD ["serve", "-s", "build"]
